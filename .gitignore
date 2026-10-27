@@ -1,0 +1,64 @@
+# --- gh-sync defaults ---
+# зависимости и сборки
+node_modules/
+venv/
+.venv/
+env/
+__pycache__/
+*.pyc
+.next/
+dist/
+build/
+target/
+bin/
+obj/
+.vs/
+.idea/
+DerivedData/
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+# секреты — никогда в репозиторий
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+id_rsa*
+id_ed25519*
+deploy_key*
+ssh-key-*
+*.session
+*.session-journal
+credentials*.json
+service_account*.json
+token.json
+cookies*.json
+storage_state*.json
+# данные и логи
+*.sqlite
+*.sqlite3
+*.db
+*.db-journal
+*.log
+logs/
+# тяжёлые медиа и архивы
+*.mp4
+*.MP4
+*.mov
+*.MOV
+*.HEIC
+*.mp3
+*.wav
+*.m4a
+*.zip
+*.rar
+*.7z
+*.onnx
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+.DS_Store
+# --- end gh-sync defaults ---

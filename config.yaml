@@ -1,0 +1,62 @@
+# SignBridge Configuration
+# ========================
+
+# Пути к данным
+data:
+  slovo_dir: "data/slovo"
+  bukva_dir: "data/bukva"
+  models_dir: "data/models"
+  checkpoints_dir: "checkpoints"
+
+# Параметры модели
+model:
+  type: "lstm"  # lstm, transformer, cnn_lstm
+  input_size: 159  # 63 + 63 + 33 (руки + верх тела)
+  hidden_size: 256
+  num_layers: 2
+  dropout: 0.3
+  bidirectional: true
+
+# Параметры обучения
+training:
+  epochs: 50
+  batch_size: 32
+  learning_rate: 0.001
+  weight_decay: 0.01
+  seq_length: 30
+  num_workers: 0  # 0 для macOS
+
+# Параметры инференса
+inference:
+  confidence_threshold: 0.5
+  seq_length: 30
+  smooth_predictions: true
+  smooth_window: 5
+
+# MediaPipe настройки
+mediapipe:
+  min_detection_confidence: 0.5
+  min_tracking_confidence: 0.5
+  include_face: false  # Экономит память
+
+# TTS настройки
+tts:
+  speaker: "baya"  # aidar, baya, kseniya, xenia, eugene
+  sample_rate: 48000
+
+# Камера
+camera:
+  id: 0
+  width: 640
+  height: 480
+  fps: 30
+
+# Ссылки для скачивания
+downloads:
+  slovo_landmarks: "https://rndml-team-cv.obs.ru-moscow-1.hc.sbercloud.ru/datasets/slovo/slovo_mediapipe.json"
+  slovo_dataset: "https://rndml-team-cv.obs.ru-moscow-1.hc.sbercloud.ru/datasets/slovo/slovo.zip"
+  slovo_360p: "https://rndml-team-cv.obs.ru-moscow-1.hc.sbercloud.ru/datasets/slovo/slovo_full360.zip"
+  bukva_dataset: "https://rndml-team-cv.obs.ru-moscow-1.hc.sbercloud.ru/datasets/bukva/bukva.zip"
+  model_dactyl: "https://rndml-team-cv.obs.ru-moscow-1.hc.sbercloud.ru/datasets/bukva/models/MobileNetV2_TSM.onnx"
+  model_gestures: "https://rndml-team-cv.obs.ru-moscow-1.hc.sbercloud.ru/datasets/slovo/models/mvit/onnx/mvit32-2.onnx"
+  model_signflow: "https://rndml-team-cv.obs.ru-moscow-1.hc.sbercloud.ru/datasets/slovo/models/SignFlow-R.onnx"
